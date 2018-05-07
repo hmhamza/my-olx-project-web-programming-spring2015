@@ -1,0 +1,129 @@
+﻿@{
+    Layout = null;
+}
+
+@{
+string Error=ViewBag.Error;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/Images/asd.ico" />
+    <title>New Account</title>
+
+    <link rel="stylesheet" type="text/css" href="/CSS/SignUp_CSS.css" />
+
+    <link href="/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="/JS/bootstrap.min.js"></script>
+
+    <script src="/JS/jquery-1.11.2.min.js"></script>
+
+    <!-- AD Widget -->
+    <script src="../JS/AD_Widget.js"></script>
+
+    <!-- Custom Alert Boxes -->
+    <link rel="stylesheet" type="text/css" href="/CSS/Validation_CSS.css" />
+
+    <script src="/JS/Validation_JS.js"></script>
+
+<script type="text/javascript">
+
+    function CHECK() {
+
+       
+        if (document.getElementById('Email1').value == "") {
+            Alert.render('Enter Email');
+            return false;
+        }
+        else if (document.getElementById('Password1').value == "") {
+            Alert.render('Enter Password');
+            return false;
+        }
+        else if (document.getElementById('Re-password1').value == "") {
+            Alert.render('Re-type Password');
+            return false;
+        }
+        else if (document.getElementById('Re-password1').value != document.getElementById('Password1').value) {
+            Alert.render("Passwords don't match");
+            return false;
+        }
+    }
+
+</script>
+
+</head>
+
+
+
+<body onload="Refresh_AD()">
+
+
+    <header id="Header-container" style="margin:15px 0 0 0;">
+
+        <div id="AD_Widget" style="margin: auto; width: 600px; height: 120px">
+        </div>
+
+    </header>
+
+<div id="dialogoverlay"></div>
+<div id="dialogbox">
+  <div>
+    <div id="dialogboxhead"></div>
+    <div id="dialogboxbody"></div>
+    <div id="dialogboxfoot"></div>
+  </div>
+</div>
+
+
+@using (Html.BeginForm("SignUp","myOLX")) {
+    
+
+    <div>
+
+        <h1 style="color: black; font-size: 20px; font-weight: 200; margin: 41px 0 0 264.5px">Create an account</h1>
+
+        <div class="box">
+            <div class="box-image">
+                <div id="Email">
+                    <input type="email" value="" class="input-box" style="margin: 15px 0 0 131px" id="Email1" name="Email" />
+                </div>
+
+                <div id="Password">
+                    <input type="password" value="" class="input-box" style="margin: 32px 0 0 131px" id="Password1" name="Password" />
+                </div>
+
+                <div id="Re-password">
+                    <input type="password" value="" class="input-box" style="margin: 32px 0 0 131px" id="Re-password1" name="Re-password" />
+                </div>
+
+<div id="Error" style="height:30px; width:280px;margin: 28px 0 0 156px; font-family:'Arial Rounded MT';font-size:20px; color:red;">
+@Error    
+            </div>
+
+                <div>
+
+<input id="SignUp" type="submit" onclick="return CHECK()" value="" style="background: url(/Images/Create_Button.png); width: 132px; height: 37px; margin: 10px 0 0 130px;" />
+                   
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+}
+    <footer>
+        <img src="../Images/Footer.png" style="width: 1349px; height: 442px; margin: 10px 0 0 0; vertical-align: text-top;" />
+    </footer>
+
+</body>
+</html>

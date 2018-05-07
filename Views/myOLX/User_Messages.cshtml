@@ -1,0 +1,77 @@
+﻿@using Web_Finale3.Models
+@{
+        Layout = "~/Views/AccountLayoutPage.cshtml";
+}
+@{
+
+        string Name=ViewBag.Name;
+        string Email=ViewBag.Email;
+        List<Message> Messages = ViewBag.Messages;
+        int Count=0;
+}
+
+<script>
+
+    $(document).ready(function () {
+
+        document.getElementById("ADS_Button").style.backgroundColor = "#2965be";
+        document.getElementById("Messages_Button").style.backgroundColor = "Orange";
+        document.getElementById("Settings_Button").style.backgroundColor = "#2965be";
+
+    });
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="../CSS/User_CSS.css" />
+
+@section Name
+{
+        <p style="font-size:35px; font-family:'Forte'; margin:20px 0 15px 20px;">@Name 's Profile</p>
+}
+
+@section Content
+{
+
+<div style="width:875px; background-color:black;">
+<h2 style="font-family:'Arial Rounded MT'; color:white; text-align:center;">@Name 's Messages</h2>
+
+</div>
+
+<div id="Search_Results">
+
+
+ @foreach (Message m in Messages)
+                {
+
+                 <div class='resultBox'> 
+            <div >
+               @if(m.To==Email){
+                   <span style=" font-family: 'Comic Sans MS';  font-size: 18px;color:white; height: 30px; width: 80px;  margin: 0 0 15px 10px;  background-color: rgba(30, 38, 236, 0.78);">Received</span>
+                    <span style="font-family:Papyrus; font-size: 20px; height: 30px; width: 80px;  margin: 0 0 15px 10px;"> From:@m.From</span>                
+}
+                @if(m.From==Email){
+                     <span style=" font-family: 'Comic Sans MS';  font-size: 18px;color:white; height: 30px; width: 80px;  margin: 0 0 15px 10px;  background-color: rgba(30, 38, 236, 0.78);">Sent</span>
+                    <span style="font-family:Papyrus; font-size: 20px; height: 30px; width: 80px;  margin: 0 0 15px 10px;">To:@m.To</span>                   
+ }    
+                    
+
+            </div>
+
+            <div class='Text_Div'>
+                <p class='Result_Text'> @m.MessageBody </p>
+                
+                  
+                &nbsp&nbsp 
+                
+
+            </div>
+ </div>
+         }   
+       
+               
+
+          
+
+    </div>
+
+}

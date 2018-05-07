@@ -1,0 +1,212 @@
+﻿@{
+    Layout = null;
+}
+@{
+    bool Flag=ViewBag.Flag;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/Images/asd.ico" />
+
+    <title>Free classifieds in Pakistan, classified ads in Pakistan (For Sale in Pakistan, Vehicles in Pakistan, Real Estate in Pakistan, Community in Pakistan,...)</title>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/Home_CSS.css" />
+
+    <!-- AD Widget -->
+    <script src="../JS/AD_Widget.js"></script>
+
+
+    <!-- First, add jQuery (and jQuery UI if using custom animation -->
+    <script src="../Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui.min.js" type="text/javascript"></script>
+
+
+    <!-- Second, add the Slider Control and Animation plugins -->
+    <script src="../Scripts/jquery.SliderControl.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.SliderAnimation.js" type="text/javascript"></script>
+
+
+    <!-- Third, add the GalleryView Javascript and CSS files -->
+    <link href="../Styles/jquery.ImageSliderGalleryview.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery.ImageSliderGalaryView.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('#sliderImageGallery').galleryView({
+                transition_speed: 1700,     //2000
+                transition_interval: 1500,      //5000
+                panel_width: 1000,
+                panel_height: 300,
+                frame_width: 90,
+                frame_height: 60,
+                show_panels: true,      //true
+                show_panel_nav: false,   //true
+                enable_overlays: false,
+                easing: 'swing',
+                panel_animation: 'slide',
+                panel_scale: 'crop',
+                show_filmstrip: false,
+                infobar_opacity: 5.0,
+                enable_slideshow: true,
+                autoplay: true,
+
+            });
+        });
+
+
+    </script>
+
+</head>
+
+<body onload="Refresh_AD()">
+
+
+    <header id="Header-container" style="margin:15px 0 0 0;">
+
+        <div id="AD_Widget" style="margin: auto; width: 560px; height: 120px">
+        </div>
+
+    </header>
+
+    <div>
+
+        <div id="mySlider" class="slider">
+
+            <ul id='sliderImageGallery'>
+
+
+                <li>
+                    <img src='../Images/s21.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img class="slider_img" src='../Images/s1.jpg' />
+                </li>
+
+                
+                <li>
+                    <img src='../Images/s18.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s6.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s12.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s2.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s14.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s8.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s15.jpg' class="slider_img" />
+                </li>
+
+                
+
+                <li>
+                    <img src='../Images/s9.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s16.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s22.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s4.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s10.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s17.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s5.jpg' class="slider_img" />
+                </li>
+                               
+
+                <li>
+                    <img src='../Images/s19.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s13.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s20.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s3.jpg' class="slider_img" />
+                </li>
+
+                <li>
+                    <img src='../Images/s11.jpg' class="slider_img" />
+                </li>
+
+            </ul>
+        </div>
+
+
+        <a href="/myOLX/Main_Search_Ad">
+            <input type="button" class="button" value="Search for Ads" style="background-color: #c200ff; margin: 30px 0 0 450px">
+        </a>
+
+
+        <a href="/myOLX/Submit_Ad">
+            <input type="button" class="button" value="Submit an Ad" style="background-color: #FF8700; margin: 30px 0 0 30px">
+        </a>
+        <br />
+
+@if(@Flag){
+
+ <a href="/myOLX/User_ADS" >
+            <input type="button" class="button" value="My Account" style="background-color: #2965be; margin: 30px 0 0 450px">
+        </a>
+
+        <a href="/myOLX/LogOut">
+            <input type="button" class="button" value="Log Out" style="background-color: #FC0606; margin: 30px 0 0 30px">
+        </a>
+
+}
+
+@if(!@Flag){
+        <a href="/myOLX/Login">
+            <input type="button" class="button" value="Login" style="background-color: #2965BE; margin: 30px 0 0 450px">
+        </a>
+
+        <a href="/myOLX/SignUp">
+            <input type="button" class="button" value="Sign Up" style="background-color: #2965BE; margin: 30px 0 0 30px">
+        </a>
+}
+    </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+/*!
+* Validation-with-lightbox v1.1
+* https://github.com/soyosolution/validation-with-lightbox
+* http://tool.soyosolution.com/validation-with-lightbox/
+*
+* Includes jQuery Library
+* http://www.jquery.com/
+*
+* Copyright 2014 Soyo Solution Company. and other contributors
+* Released under the MIT license
+* http://jquery.org/license
+*
+* Date: 2014-01-02
+* =============================================
+* Current file name : jquery-valid-lightbox-v1.1.css
+*/
+
+/*globle*/
+#lightbox {
+    position:fixed; /* keeps the lightbox window in the current viewport */
+    top:0; left:0; width:100%; height:100%; background-image: url(data:application/octet-stream;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTFH80I3AAAADUlEQVQYV2NgYGCoBwAAhACAEozAVQAAAABJRU5ErkJggg==); 
+    text-align:center;
+    display: block;
+    }
+#message_box_outer { vertical-align:middle; display: block; margin:5% auto auto auto;}
+#dialog_box {width:600px; margin:0 auto; overflow:hidden; padding: 0 0 0 0;}
+
+/*title*/
+#dialog_box #title_box {float:left; width:100%; background:#e69171; color:#fff; font-size:1em; font-weight:bold;}
+#dialog_box #title_box #title_line  {float:left; width:90%; text-align:center; margin:10px 0;}
+#dialog_box #title_box #btn_close_top {float:left; width:10%; text-align:center; margin:10px 0;}
+#dialog_box #title_box #btn_close_top:hover {cursor:pointer;}
+ dialog_box #title_box #btn_close_top:active {position:relative;	top:1px;}
+/*content*/
+#dialog_box #content_box {float:left; width:100%; background:#fff; text-align:left; max-height: 500px; overflow: auto;}
+#dialog_box #content_box ul {list-style-type:square; color:#e69171}
+#dialog_box #content_box li {color:#555;}
+#dialog_box #content_box #msg_title {background:#e69171;}
+#dialog_box #content_box #success_msg {width:460px; padding:20px; color:#555;}
+/*footer*/
+#dialog_box #msg_footer {float: left; width: 100%; background: #fff; border-top: 1px solid #eee; padding: 5px 0; }
+#dialog_box #msg_footer #btn_close_bottom {float:right; text-align:center;}
+
+.lightbox_footer_close_btn { border:1px solid #eee; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; padding:3px 10px; margin:0 10px 0 0; background: #e69171; color: #fff; font-size: 14px; }
+.lightbox_footer_close_btn:hover { cursor:pointer;}
+.lightbox_footer_close_btn:active { position:relative;	top:1px;}

@@ -1,0 +1,43 @@
+﻿body {
+    /*background:url(../Images/BG1.jpg) no-repeat  0 0;
+*/
+
+}
+
+#AD_img{
+     width: 533px;
+     height: 120px;
+     margin: auto; 
+}
+
+.box {
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    background: #fff;
+    margin: 0 0 0 237px;
+    width: 876px;
+    height: auto;
+    
+}
+
+.input-box {
+    background: #fff;
+    border: 1px solid #818080;
+    border-right-color: #efede8;
+    border-bottom-color: #efede8;
+    
+    border-radius: 0;
+
+    height:28px;
+    
+}
+
+.UploadedImage {
+            max-height: 220px;
+            min-height: 220px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            max-width: 220px;
+            min-width: 220px;
+        }

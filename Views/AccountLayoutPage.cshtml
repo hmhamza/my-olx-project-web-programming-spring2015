@@ -1,0 +1,80 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+     <meta name="viewport" content="width=device-width" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/Images/asd.ico" />
+
+    <title>My Account • OLX.com.pk</title>
+
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="../JS/bootstrap.min.js"></script>
+
+    <script src="../JS/jquery-1.11.2.min.js"></script>
+
+
+    <!-- AD Widget -->
+    <script src="../JS/AD_Widget.js"></script>
+
+</head>
+<body>
+           <div>
+                 <header id="Header-container">
+
+        <div id="AD_Widget" style="margin: auto; width: 600px; height: 120px;">
+        </div>
+
+    </header>
+
+<div style="margin:20px 0 10px 236px">
+
+@RenderSection("Name", required: false)
+                
+
+<a href='@Url.Action("User_ADS", "myOLX")'>
+<input type="button" id="ADS_Button" value="ADS" style="background-color:#2965be;color:white; font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+
+<a href='@Url.Action("User_Messages", "myOLX")'>
+<input type="button" id="Messages_Button" value="Messages"  style="background-color:#2965be;color:white; font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+
+<a href='@Url.Action("User_Settings", "myOLX")'>
+<input type="button" id="Settings_Button" value="Settings"  style="background-color:#2965be;color:white; font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+
+
+<a href='@Url.Action("User_Facebook", "myOLX")'>
+<input type="button" id="Facebook_Button" value="Facebook Friends"  style="background-color:#2965be;color:white; font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+
+<a href='@Url.Action("Home", "myOLX")'>
+<input type="button" id="ADS_Button" value="Home" style="background-color:#2965be;color:white; margin-left:457px; font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+
+<a href='@Url.Action("LogOut", "myOLX")'>
+<input type="button" id="ADS_Button" value="Log Out" style="background-color:#FC0606;color:white; margin-left:5px;font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+
+</div>
+                <div style="width:875px; height:auto; margin: auto;  border: 1px solid #dddddd; ">
+
+@RenderSection("Content", required: false)
+                @RenderBody()
+                </div>
+               
+                
+
+<footer>
+
+        <img src="../Images/Footer.png" style="width: 1349px; height: 442px; margin: 0 0 0 0; vertical-align: text-top;" />
+
+
+    </footer>
+
+            </div>
+</body>
+</html>

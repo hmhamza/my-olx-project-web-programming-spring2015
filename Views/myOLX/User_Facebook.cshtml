@@ -1,0 +1,105 @@
+﻿@using Web_Finale3.Models
+@{
+        Layout = "~/Views/AccountLayoutPage.cshtml";
+}
+@{
+
+        string Name=ViewBag.Name;
+        int fCount=ViewBag.fCount;
+
+        string[][] friendsInfo=ViewBag.FriendsInfo;
+        @*List<ad>[] friendsAds = new List<AD>[fCount];*@
+
+        List<AD>[] friendsAds = ViewBag.Friends_ADS;
+        int Count=0;
+}
+
+<script>
+
+    $(document).ready(function () {
+
+        document.getElementById("ADS_Button").style.backgroundColor = "#2965be";
+        document.getElementById("Messages_Button").style.backgroundColor = "#2965be";
+        document.getElementById("Settings_Button").style.backgroundColor = "#2965be";
+        document.getElementById("Facebook_Button").style.backgroundColor = "Orange";
+
+    });
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="../CSS/User_CSS.css" />
+
+@section Name
+{
+        <p style="font-size:35px; font-family:'Forte'; margin:20px 0 15px 20px;">@Name 's Profile</p>
+}
+
+@section Content
+{
+
+<div class="FB_box">
+<h4>&nbsp&nbsp&nbsp Friends using this app on Facebook: @fCount</h4>
+@for (int i=1;i<= fCount;i++)
+{
+
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @i .  @friendsInfo[i-1][1]</p>
+
+}
+
+
+</div>
+
+
+<div >
+
+@for (int i=1;i<= fCount;i++)
+{
+
+if(friendsAds[i-1].Count>0){
+
+<h3>&nbsp&nbsp&nbsp @friendsInfo[i-1][1] 's Ads</h3>
+
+<div id="Search_Results">
+
+                @{Count=1;}
+
+            @for (int j=0;j< friendsAds[i-1].Count;j++)
+                {
+
+                  <div class='resultBox' >
+            <div class='Count_Div'>
+                @Count
+                @{Count++;}
+
+                
+            </div>
+            @{AD a=friendsAds[i-1].ElementAt(j);}
+           
+
+            <div class='Text_Div'>
+                <p class='Result_Text'>Title: &nbsp&nbsp @a.Title </p>
+                <p class='Result_Text'>Location:&nbsp&nbsp @a.Location</p>
+                <p class='Result_Text'>Price:&nbsp&nbsp @a.Price </p>
+
+            </div>
+
+        @using (Html.BeginForm("AD_Details","myOLX",new{id=@a.ID},FormMethod.Post,null))
+        {
+            <input value="View Full AD" type="submit" class="button" style="background-color: #2965BE; margin: 10px 0 0 290px"/>
+        }
+  
+        </div>
+                }
+
+          
+
+    </div>
+
+
+    }
+
+
+        
+    }
+</div>
+}

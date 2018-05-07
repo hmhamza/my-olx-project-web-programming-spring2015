@@ -1,0 +1,416 @@
+﻿@using Web_Finale3.Models
+@{
+    Layout = null;
+}
+
+       
+
+@{
+       @* string Category=ViewBag.Category;
+        string Title=ViewBag.Title;
+        int Price=ViewBag.Price;
+        string Param1= ViewBag.Param1;
+        string Param2= ViewBag.Param2;
+        string Description=  ViewBag.Description;
+        string Name=  ViewBag.Name;
+        string Email=ViewBag.Email;
+        string Phone= ViewBag.Phone;
+        string Location=ViewBag.Location;*@
+
+        AD ad=ViewBag.ad;
+
+        string Rating=ViewBag.Rating;
+        bool Flag=ViewBag.Flag;
+        bool DONE=ViewBag.DONE;
+
+        int RatedBy=ViewBag.RatedBy; 
+       
+        List<Image> IMGS=ViewBag.IMGS;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/Images/asd.ico" />
+
+    <title>@ad.Title</title>
+
+    <link rel="stylesheet" type="text/css" href="/CSS/SubmitAnAdd_CSS.css" />
+
+    <link href="/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="/JS/bootstrap.min.js"></script>
+
+    <script src="/JS/jquery-1.11.2.min.js"></script>
+
+    <!-- AD Widget -->
+    <script src="/JS/AD_Widget.js"></script>
+
+
+<!-- Custom Alert Boxes -->
+    <link rel="stylesheet" type="text/css" href="/CSS/Validation_CSS.css" />
+
+    <script src="/JS/Validation_JS.js"></script>
+
+<script type="text/javascript">
+
+    function CHECK() {
+
+        if (document.getElementById("Message_Body").value == "") {
+            alert('Enter a message to send');
+            return false;
+        }
+        else if (document.getElementById("Sender_Email").value == "") {
+            alert("Enter your Email address");
+            return false;
+        }
+
+    }
+
+</script>
+    <!-- First, add jQuery (and jQuery UI if using custom animation -->
+    <script src="/Scripts/jquery.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-ui.min.js" type="text/javascript"></script>
+
+
+    <!-- Second, add the Slider Control and Animation plugins -->
+    <script src="/Scripts/jquery.SliderControl.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.SliderAnimation.js" type="text/javascript"></script>
+
+
+    <!-- Third, add the GalleryView Javascript and CSS files -->
+    <link href="/Styles/jquery.ImageSliderGalleryview.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery.ImageSliderGalaryView.js" type="text/javascript"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('#sliderImageGallery').galleryView({
+                transition_speed: 2000,     //2000
+                transition_interval: 1500,      //5000
+                panel_width: 585,           //619
+                panel_height: 400,          //430
+                frame_width: 90,
+                frame_height: 60,
+                show_panels: true,      //true
+                show_panel_nav: false,   //true
+                enable_overlays: false,
+                easing: 'swing',
+                panel_animation: 'slide',
+                panel_scale: 'crop',
+                show_filmstrip: true,
+                infobar_opacity: 5.0,
+                enable_slideshow: false,
+                autoplay: false,
+
+            });
+        });
+
+
+    </script>
+
+    <script type="text/javascript">
+
+        function Populate_Filters_Info(id) {
+
+            var html = "";
+
+            if (id == 1) {
+                html += " <div style='margin:10px 0 10px 10px; font-size:17px'>";
+                html += "<span style='color:blue;font-family:'Arial Rounded MT'>Brand: </span> ";
+                html += "<span style='font-family:'Arial Rounded MT''>" + "Samsung" + "</span>";
+
+                html += "</div>";
+            }
+            else if (id == 2) {
+                html += " <div style='margin:10px 0 10px 10px; font-size:17px'>";
+                html += "<span style='color:blue;font-family:'Arial Rounded MT'>Brand: </span> ";
+                html += "<span style='font-family:'Arial Rounded MT''>" + "Hyundai" + "</span>";
+
+                html += "</div>";
+
+                html += " <div style='margin:10px 0 10px 10px; font-size:17px'>";
+                html += "<span style='color:blue;font-family:'Arial Rounded MT'>Mileage: </span> ";
+                html += "<span style='font-family:'Arial Rounded MT''>" + "12500" + " </span>";
+
+                html += "</div>";
+            }
+
+            else if (id == 3) {
+                html += " <div style='margin:10px 0 10px 10px; font-size:17px'>";
+                html += "<span style='color:blue;font-family:'Arial Rounded MT'>Category: </span> ";
+                html += "<span style='font-family:'Arial Rounded MT''>" + "Footwear" + "</span>";
+
+                html += "</div>";
+
+                html += " <div style='margin:10px 0 10px 10px; font-size:17px'>";
+                html += "<span style='color:blue;font-family:'Arial Rounded MT'>For: </span> ";
+                html += "<span style='font-family:'Arial Rounded MT''>" + "Women" + " </span>";
+
+                html += "</div>";
+
+            }
+
+            else if (id == 4) {
+                html += " <div style='margin:10px 0 10px 10px; font-size:17px'>";
+                html += "<span style='color:blue;font-family:'Arial Rounded MT'>Category: </span> ";
+                html += "<span style='font-family:'Arial Rounded MT''>" + "Tables" + "</span>";
+
+                html += "</div>";
+            }
+            else if (id == 5) {
+                html += " <div style='margin:10px 0 10px 10px; font-size:17px'>";
+                html += "<span style='color:blue;font-family:'Arial Rounded MT'>Rooms: </span> ";
+                html += "<span style='font-family:'Arial Rounded MT''>" + "3" + "</span>";
+                html += "</div>";
+
+                html += " <div style='margin:10px 0 10px 10px; font-size:17px'>";
+                html += "<span style='color:blue;font-family:'Arial Rounded MT'>Area: </span> ";
+                html += "<span style='font-family:'Arial Rounded MT''>" + "860" + " </span>";
+
+                html += "</div>";
+
+            }
+            document.getElementById("Filters_Info").innerHTML = html;
+        }
+
+       
+    </script>
+</head>
+<body>
+
+    <header id="Header-container" style="margin: 15px 0 40px 0;">
+
+        <div id="AD_Widget" style="margin: auto; width: 600px; height: 120px">
+        </div>
+
+    </header>
+
+<div id="dialogoverlay"></div>
+<div id="dialogbox">
+  <div>
+    <div id="dialogboxhead"></div>
+    <div id="dialogboxbody"></div>
+    <div id="dialogboxfoot"></div>
+  </div>
+</div>
+
+<a href='@Url.Action("Home", "myOLX")'>
+<input type="button" id="ADS_Button" value="Home" style="background-color:#2965be;color:white; margin:0 0 10px 875px; font-size:22px; font-family:'Arial Rounded MT'" />
+</a>
+
+<a href='@Url.Action("Search_AD", "myOLX")'>
+<input type="button" id="ADS_Button" value="Search AD" style="background-color:#2965be;color:white; margin-left:15px; font-size:22px; font-family:'Arial Rounded MT'" />
+</a>
+
+    <div style="width: 880px; height: 800px; margin: auto;">
+
+        <div id="left-div" style="width: 620px; height: 799px; float: left;">
+
+            <div style="width: 619px; height: 115px; float: left; border: 1px solid #dddddd; border-radius: 3px;">
+
+                <div style="width: 618px; height: 80px; float: left; margin: 0 0 0 14px">
+                    <h3>@ad.Title</h3>
+                </div>
+
+                <div style="width: 618px; height: 30px; float: left; margin: 0 0 0 14px">
+                    <span>
+                        <img src='/Images/Location_Icon.jpg' style="width: 15px; height: 21px; margin: 0 0 0 0" />
+                    </span>
+
+                    <h5 style="margin: -18px 0 0 20px">@ad.Location</h5>
+                </div>
+
+            </div>
+
+            <div style="width: 620px; height: auto; float: left; margin: 15px 0 0 0;">
+
+                <div id="mySlider" style="width: 605px; height: 510px; float: left; margin: 10px 0 10px 15px;">
+
+                    <ul id='sliderImageGallery'>
+
+                        @foreach(Image i in IMGS){
+
+                        <li>
+                            <img src='@i.Path' style="width: 550px; height: 250px;" />
+                        </li>
+
+                        }
+                      
+
+
+
+
+
+                    </ul>
+                </div>
+            </div>
+
+            <div id="Filters_Info" style="width: 619px; height: auto; margin: 10px 0 0 0; float: left; border: 1px solid #dddddd; border-radius: 3px;">
+                @if (@ad.Category=="Mobile"){
+             <div style='margin: 10px 0 10px 10px; font-size: 17px'>
+                 <span style='color: blue; font-family: "Arial Rounded MT"'>Brand: </span>
+                 <span style='font-family: "Arial Rounded MT"'>@ad.Param1</span>
+
+             </div>
+                }
+        
+        @if (@ad.Category=="Car"){
+            <div style='margin: 10px 0 10px 10px; font-size: 17px'>
+                <span style='color: blue; font-family: "Arial Rounded MT"'>Brand: </span>
+                <span style='font-family: "Arial Rounded MT"'>@ad.Param1</span>
+
+            </div>
+
+                <div style='margin: 10px 0 10px 10px; font-size: 17px'>
+                    <span style='color: blue; font-family: "Arial Rounded MT"'>Mileage: </span>
+                    <span style='font-family: "Arial Rounded MT"'>@ad.Param2</span>
+
+                </div>
+                }
+   
+        @if (@ad.Category=="Fashion"){
+             <div style='margin: 10px 0 10px 10px; font-size: 17px'>
+                 <span style='color: blue; font-family: "Arial Rounded MT"'>Category: </span>
+                 <span style='font-family: "Arial Rounded MT"'>@ad.Param1</span>
+
+             </div>
+
+                <div style='margin: 10px 0 10px 10px; font-size: 17px'>
+                    <span style='color: blue; font-family: "Arial Rounded MT"'>For: </span>
+                    <span style='font-family: "Arial Rounded MT"'>@ad.Param2</span>
+
+                </div>
+
+                }
+
+        @if (@ad.Category=="Furniture") {
+             <div style='margin: 10px 0 10px 10px; font-size: 17px'>
+                 <span style='color: blue; font-family: "Arial Rounded MT"'>Category: </span>
+                 <span style='font-family: "Arial Rounded MT"'>@ad.Param1</span>
+
+             </div>
+                }
+         @if (@ad.Category=="House") {
+             <div style='margin: 10px 0 10px 10px; font-size: 17px'>
+                 <span style='color: blue; font-family: "Arial Rounded MT"'>Rooms: </span>
+                 <span style='font-family: "Arial Rounded MT"'>@ad.Param1</span>
+             </div>
+
+                <div style='margin: 10px 0 10px 10px; font-size: 17px'>
+                    <span style='color: blue; font-family: "Arial Rounded MT"'>Area: </span>
+                    <span style='font-family: Arial Rounded MT'>@ad.Param2</span>
+
+                </div>
+                }    
+            </div>
+
+            <div style="width: 619px; height: 200px; margin: 10px 0 20px 0; float: left; border: 1px solid #dddddd; border-radius: 3px;">
+
+                <div style="width: 619px; height: 200px; margin: 10px 0 10px 10px">
+                    <h4 style="color: blue; font-family: 'Arial Rounded MT'">AD Description:</h4>
+                    <p>@ad.Description</p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div id="right-div" style="width: 250px; height: 500px; float: right;">
+
+            <div style="border-radius: 3px; background-color: #FFED7D; width: 250px; height: 75px; float: right;">
+                <h2 style="margin: 22px 0 0 43px">Rs. @ad.Price</h2>
+
+            </div>
+
+            <div style="border-radius: 3px; background-color: #F1F6FC; width: 250px; height: auto; float: right; margin-top: 5px;">
+                <span>
+                    <img src='/Images/User_Icon.jpg' style="width: 33px; height: 35px; margin: 20px 0 0 16px" />
+                </span>
+
+                <h4 style="margin: -30px 0 0 53px">@ad.Name</h4>
+
+
+                <h4 style="margin: 20px 0 0 53px">
+
+                    <span style="color: red">User Rating:</span> @Rating/10
+    
+                </h4>
+
+                <h5 style="margin: 5px 0 0 53px">(Rated by @RatedBy Viewers)
+                </h5>
+
+                @if(Flag && !DONE){
+                using (Html.BeginForm("Rate_User","myOLX",new{UserEmail=@ad.Email,ID=@ad.ID},FormMethod.Post,null)){
+                <select name="Rating_Value" id ="Rating_Select" style="width: 152px; height: 30px; margin: 20px 0 0 53px">
+                    <option value="0">0 (Zero)</option>
+                    <option value="1">1 (One)</option>
+                    <option value="2">2 (Two)</option>
+                    <option value="3">3 (Three)</option>
+                    <option value="4">4 (Four)</option>
+                    <option value="5">5 (Five)</option>
+                    <option value="6">6 (Six)</option>
+                    <option value="7">7 (Seven)</option>
+                    <option value="8">8(Eight)</option>
+                    <option value="9">9 (Nine)</option>
+                    <option value="10">10 (Ten)</option>
+                </select>
+
+                <input id="Rate_Button" type="submit" value="" style="background: url(/Images/Rate_Button1.jpg); width: 152px; height: 35px; margin: 7px 0 15px 53px" />
+}               
+ }
+                <!--
+                    <div style="margin: 10px 0 0 53px">
+                        <a href="#">User Ads</a>
+                    </div>
+-->
+            </div>
+
+            <div style="border-radius: 3px; background-color: #F1F6FC; width: 250px; height: 50px; float: right; margin-top: 5px;">
+                <span>
+                    <img src='/Images/Phone_Icon.jpg' style="width: 33px; height: 32px; margin: 10px 0 0 16px" />
+                </span>
+
+                <h3 style="margin: -29px 0 0 60px">@ad.Phone</h3>
+            </div>
+
+            @if(Flag){
+            using (Html.BeginForm("Send_Email","myOLX",new{Toemail=@ad.Email},FormMethod.Post,null))
+            
+{
+            <div style="border-radius: 3px; background-color: #F1F6FC; width: 250px; height: 260px; float: right; margin-top: 5px;">
+                <h4 style="margin: 15px 0 0 15px">Email Seller</h4>
+
+                <textarea id="Message_Body" name="Message_Body" placeholder="Message content." style="width: 202px; height: 88px; margin: 10px 0 0 15px; padding: 5px; border: 1px solid #dddddd; border-radius: 3px; resize: none; overflow-y: hidden;" cols="80" rows="1"></textarea>
+
+                <input id="Sender_Email" name="Sender_Email" type="email" placeholder="Your email." style="width: 202px; margin: 10px 0 0 15px; padding: 5px; border: 1px solid #dddddd; border-radius: 3px;" />
+
+                <input id="Send_Email" type="Submit" onclick="return CHECK()" value="" style="background: url(/Images/Send_Email.jpg); width: 212px; height: 40px; margin: 20px 0 0 16px" />
+
+            </div>
+            }
+}
+            <div style="background: url(/Images/Tips.jpg) no-repeat 0 0; border-radius: 3px; background-color: #F1F6FC; width: 250px; height: 110px; float: right; margin-top: 5px;">
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <footer style="margin: 170px 0 0 0">
+
+        <img src="/Images/Footer.png" style="width: 1349px; height: 442px; margin: 0 0 0 0; vertical-align: text-top;" />
+
+
+    </footer>
+</body>
+</html>

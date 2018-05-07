@@ -1,0 +1,133 @@
+﻿
+@{
+    Layout = null;
+}
+
+@{
+string Error=ViewBag.Error;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/Images/asd.ico" />
+
+    <title>Free classifieds in Pakistan, classified ads in Pakistan (For Sale in Pakistan, Vehicles in Pakistan, Real Estate in Pakistan, Community in Pakistan,...)</title>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/Login_CSS.css" />
+
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="../JS/bootstrap.min.js"></script>
+
+    <script src="../JS/jquery-1.11.2.min.js"></script>
+
+    <!-- AD Widget -->
+    <script src="../JS/AD_Widget.js"></script>
+
+<!-- Custom Alert Boxes -->
+    <link rel="stylesheet" type="text/css" href="/CSS/Validation_CSS.css" />
+
+    <script src="/JS/Validation_JS.js"></script>
+
+<script type="text/javascript">
+
+    function CHECK() {
+
+       
+        if (document.getElementById('Email1').value == "") {
+            Alert.render('Enter Email');
+            return false;
+        }
+        else if (document.getElementById('Password1').value == "") {
+            Alert.render('Enter Password');
+            return false;
+        }
+       
+    }
+
+</script>
+
+</head>
+<body onload="Refresh_AD()">
+
+    <header id="Header-container" style="margin:15px 0 0 0;">
+
+        <div id="AD_Widget" style="margin: auto; width: 560px; height: 120px">
+        </div>
+
+    </header>
+
+<div id="dialogoverlay"></div>
+<div id="dialogbox">
+  <div>
+    <div id="dialogboxhead"></div>
+    <div id="dialogboxbody"></div>
+    <div id="dialogboxfoot"></div>
+  </div>
+</div>
+
+@using (Html.BeginForm("Login","myOLX"))
+{
+
+    <div>
+
+        <h1 style="color: black; font-size: 20px; font-weight: 200; margin: 41px 0 0 408px">Log in</h1>
+
+        <div class="box">
+
+            <div class="box-image">
+
+                <div id="Email">
+                    <input type="email" value="" class="input-box" style="margin: 2px 0 0 80px;" id="Email1" name="Email" />
+                   
+                </div>
+
+                <div id="Password">
+                    <input type="password" value="" class="input-box" style="margin: 20px 0 0 80px;" id="Password1" name="Password" />
+                </div>
+
+            <div id="Error" style="height:30px; width:280px;margin: 10px 0 0 125px; font-family:'Arial Rounded MT';font-size:20px; color:red;">
+@Error    
+            </div>
+                <div>
+                   
+<input value="" type="submit" onclick="return CHECK()" style="background: url(/Images/Login_Button.png); width: 132px; height: 41px; margin: 0 0 0 153px;"/>
+
+                </div>
+
+                <p style="margin: 21px 0 0 80px;">
+
+                    <a href="@Url.Action("SignUp", "myOLX")">
+                        <span style="color: #2965be; font-size:smaller; margin:0 0 0 75px">New user? Register here</span>
+
+                    </a>
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+}
+
+ <div class="box">
+<p style="margin:15px 0 0 150px">Log in using your Facebook account</p>
+
+<a href="@Url.Action("Visit_Facebook", "myOLX")">
+                       <input value="" type="button" style="background: url(/Images/FacebookButton.jpg); width: 120px; height: 35px; margin: 15px 0 20px 210px;"/>
+
+                    </a>
+
+</div>
+    <footer>
+
+        <img src="../Images/Footer.png" style="width: 1349px; height: 442px; margin: 10px 0 0 0; vertical-align: text-top;" />
+
+
+    </footer>
+</body>
+</html>

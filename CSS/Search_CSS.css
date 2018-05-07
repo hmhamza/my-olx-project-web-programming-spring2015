@@ -1,0 +1,83 @@
+﻿body {
+    /*background:url(../Images/BG1.jpg) no-repeat  0 0;
+    */
+}
+
+#Search_Header{
+     background: url(../Images/Search_1.png) no-repeat 0 0;
+     width: 876px;
+     height: 87px;
+     margin:auto;
+
+}
+
+.box {
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    background: #e3e3e3;
+    
+    width: 876px;
+    height: auto;
+    margin:auto;
+}
+
+.resultBox {
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    width: 876px;
+    height: 230px;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color:#F7F8FF;
+}
+
+.Result_Text{
+    font-family:'Comic Sans MS';
+    font-size:18px;
+    margin:8px 0 10px 50px;
+}
+
+.Result_Image{
+    width: 150px;
+    height: 150px;
+    margin: 0 0 0 0;
+}
+
+.Count_Div {
+    font-family: 'Comic Sans MS';
+    font-size: 18px;
+    color:white;
+    height: 30px;
+    width: 38px;
+    margin: 0 0 15px 10px;
+    background-color: rgba(30, 38, 236, 0.78);
+}
+
+.Text_Div{
+    height:auto;
+    width:650px;
+    margin:0 0 15px 10px;
+}
+
+.Img_Div{
+    
+     width: 150px;
+    height: 150px;
+    margin:-180px 0 8px 690px;
+  
+}
+
+.button {
+    padding: 5px;
+    
+    border: 1px solid #ffa853;
+    box-shadow: 0 0 5px 3px #FFF;
+    border-radius: 5px;
+    border: 1px solid #666;
+    color: #FFF;
+    width: 180px;
+    height:35px;
+    text-decoration: none;
+    font-family:'MV Boli';
+    font-size:18px;
+}

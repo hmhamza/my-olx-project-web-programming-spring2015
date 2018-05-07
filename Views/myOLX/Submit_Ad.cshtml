@@ -1,0 +1,487 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/Images/asd.ico" />
+
+    <title>Free classifieds in Pakistan, classified ads in Pakistan (For Sale in Pakistan, Vehicles in Pakistan, Real Estate in Pakistan, Community in Pakistan,...)</title>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/SubmitAnAdd_CSS.css" />
+
+    <link href="../CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="../JS/bootstrap.min.js"></script>
+
+    <script src="../JS/jquery-1.11.2.min.js"></script>
+
+
+    <!-- AD Widget -->
+    <script src="../JS/AD_Widget.js"></script>
+
+
+<!-- Custom Alert Boxes -->
+    <link rel="stylesheet" type="text/css" href="/CSS/Validation_CSS.css" />
+
+    <script src="/JS/Validation_JS.js"></script>
+
+
+    <script type="text/javascript">
+
+        function Update_Filters() {
+
+            var html;
+            html = "<div style='margin:20px 0 0 137px; font-family:Arial; font-size:15px; color:black;'>";
+            html += "<span >";
+            html += "Price&nbsp&nbsp&nbsp&nbsp&nbspRs.";
+            html += "</span>";
+            html += "<span>";
+            html += "<input type='number' class='input-box' style='margin: 0px 0 0 2px; width: 100px' name='Price' />";
+            html += "</span>";
+            html += "</div>";
+            var category = document.getElementById("Categories").value;
+
+            if (category == 5) {
+
+                html += "<div style='margin:20px 0 20px 135px; font-family:Arial; font-size:15px; color:black;'>";
+                html += "<span>";
+                html += "Brand";
+                html += "</span>";
+                html += "<span>";
+                html += "<input type='text' class='input-box' style='margin: 0px 0 0 42px; width: 100px' name='Mobile_Brand' />";
+                html += "</span>";
+                html += "</div>";
+            }
+
+            else if (category == 1) {
+
+                html += "<div style='margin:20px 0 20px 135px; font-family:Arial; font-size:15px; color:black;'>";
+                html += "<span>";
+                html += "Brand ";
+                html += "</span>";
+                html += "<span>";
+                html += "<input type='text' class='input-box' style='margin: 0px 0 0 38px; width: 100px' name='Car_Brand' />";
+                html += "</span>";
+                html += "</div>";
+
+                html += "<div style='margin:20px 0 20px 130px; font-family:Arial; font-size:15px; color:black;'>";
+                html += "<span>";
+                html += "Mileage ";
+                html += "</span>";
+                html += "<span>";
+                html += "<input type='text' class='input-box' style='margin: 0px 0 0 30px; width: 100px' name='Mileage' />";
+                html += "</span>";
+                html += "<span>";
+                html += "&nbsp&nbspKM's Driver";
+                html += "</span>";
+                html += "</div>";
+            }
+
+            else if (category == 4) {
+
+                html += "<div style='margin:20px 0 20px 130px; font-family:Arial; font-size:15px; color:black;'>";
+                html += "<span>";
+                html += "Rooms";
+                html += "</span>";
+                html += "<span>";
+                html += "<input type='text' class='input-box' style='margin: 0px 0 0 39px; width: 100px' name='Rooms' />";
+                html += "</span>";
+                html += "</div>";
+
+                html += "<div style='margin:20px 0 20px 138px; font-family:Arial; font-size:15px; color:black;'>";
+                html += "<span>";
+                html += "Area";
+                html += "</span>";
+                html += "<span>";
+                html += "<input type='text' class='input-box' style='margin: 0px 0 0 47px; width: 100px' name='Area' />";
+                html += "</span>";
+                html += "<span>";
+                html += "&nbsp&nbspSqmt";
+                html += "</span>";
+                html += "</div>";
+
+            }
+
+            else if (category == 3) {
+
+                html += "<div style='margin:20px 0 20px 130px; font-family:Arial; font-size:15px; color:black;'>";
+                html += "<span>";
+                html += "Category";
+                html += "</span>";
+                html += "<span>";
+                html += "<select name='Furniture_Categories' id='Furniture_Categories' style='width: 200px; height: 30px; margin: 0px 0 0 26px;'>";
+                html += "    <option value='Beds'>Beds & Mattresses</option>";
+                html += "    <option value='Cabinets'>Cabinets</option>";
+                html += "    <option value='Chairs'>Chairs</option>";
+                html += "    <option value='Cupboards'>Cupboards</option>";
+                html += "    <option value='Tables'>Tables</option>";
+                html += "    <option value='Other'>Other Furniture</option>";
+                html += "</select>";
+                html += "</span>";
+                html += "</div>";
+
+
+
+
+
+            }
+
+            else if (category == 2) {
+
+                html += "<div style='margin:20px 0 20px 130px; font-family:Arial; font-size:15px; color:black;'>";
+                html += "<span>";
+                html += "Category";
+                html += "</span>";
+                html += "<span>";
+                html += "<select name='Fashion_Categories' id='Fashion_Categories' style='width: 200px; height: 30px; margin: 0px 0 0 26px;'>";
+                html += "    <option value='All'>All in Fashion & Beauty</option>";
+                html += "    <option value='Clothes'>Clothes</option>";
+                html += "    <option value='Footwear'>Footwear</option>";
+                html += "    <option value='Jewellery'>Jewellery</option>";
+                html += "    <option value='Accessories'>Accessories</option>";
+                html += "    <option value='Watches'>Watches</option>";
+                html += "    <option value='Health & Beauty'>Health & Beauty</option>";
+                html += "</select>";
+                html += "</span>";
+                html += "</div>";
+
+
+                html += "<div style='margin:20px 0 20px 151px; font-family:Arial; font-size:15px; color:black;'>";
+                html += "<span>";
+                html += "For ";
+                html += "</span>";
+                html += "<span>";
+                html += "<select name='Gender_Categories' id='Gender_Categories' style='width: 200px; height: 30px; margin: 0px 0 0 39px;'>";
+                html += "    <option value='All'>All</option>";
+                html += "    <option value='Men'>Men</option>";
+                html += "    <option value='Women'>Women</option>";
+                html += "</select>";
+                html += "</span>";
+                html += "</div>";
+            }
+            document.getElementById("Filters_Box").innerHTML = html;
+        }
+
+    </script>
+
+    <script type="text/javascript">
+
+        function Check_Validation() {
+
+             
+            if (document.getElementById('Title').value == "") {
+                Alert.render("Enter a Title for your AD");
+                return false;
+            }
+            else if (document.getElementById('Description').value =="") {
+                Alert.render("Enter a Description");
+                return false;
+            }
+            else if (document.getElementById('Namei').value == "") {
+                Alert.render("Enter a Name");
+                return false;
+            }
+            else if (document.getElementById('Emaili').value == "") {
+                Alert.render("Enter an E-mail");
+                return false;
+            }
+            else if (document.getElementById('Phonei').value == "") {
+                Alert.render("Enter a Phone Number");
+                return false;
+            }
+
+        }
+
+        //function checkEmail(email) {
+        //    length = email.length;
+        //    for (i = 0; i < length; i++) {
+        //        if (email[i] == '.')
+        //            break
+        //    }
+        //    if (i != length) {
+        //        i++;
+        //        if ((email[i] < 'A' || email[i] > 'Z') && (email[i] < 'a' || email[i] > 'z'))
+        //            return false;
+        //        else {
+        //            com = ".com"
+        //            for (i; i < length; i++) {
+        //                for (j = 0, k = i; j < 4; j++, k++)
+        //                    if (email[k] != com[j])
+        //                        break;
+        //                if (j == 4)
+        //                    break;
+        //            }
+        //            if (i != length)
+        //                return true;
+        //            else
+        //                return false;
+        //        }
+
+        //    }
+        //    else
+        //        return false;
+        //}
+    </script>
+
+
+  <!-- Script for Upload Images -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript">
+
+        $(function () {
+            $("#fileupload1").change(function () {
+                $("#dvPreview1").html("");
+                var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                if (regex.test($(this).val().toLowerCase())) {
+                        if ($.browser.msie && parseFloat(jQuery.browser.version) <= 9.0) {
+                        $("#dvPreview1").show();
+                        $("#dvPreview1")[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(this).val();
+                    }
+                    else {
+                            if (typeof (FileReader) != "undefined") {
+                            $("#dvPreview1").show();
+                            $("#dvPreview1").append("<img style='width:100px;height:100px;'/>");
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                $("#dvPreview1 img").attr("src", e.target.result);
+                            }
+                            reader.readAsDataURL($(this)[0].files[0]);
+                        } else {
+                            alert("This browser does not support FileReader.");
+                        }
+                    }
+                } else {
+                    alert("Please upload a valid image file.");
+                }
+            });
+        });
+
+        $(function () {
+            $("#fileupload2").change(function () {
+                $("#dvPreview2").html("");
+                var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                if (regex.test($(this).val().toLowerCase())) {
+                    if ($.browser.msie && parseFloat(jQuery.browser.version) <= 9.0) {
+                        $("#dvPreview2").show();
+                        $("#dvPreview2")[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(this).val();
+                    }
+                    else {
+                        if (typeof (FileReader) != "undefined") {
+                            $("#dvPreview2").show();
+                            $("#dvPreview2").append("<img style='width:100px;height:100px;'/>");
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                $("#dvPreview2 img").attr("src", e.target.result);
+                            }
+                            reader.readAsDataURL($(this)[0].files[0]);
+                        } else {
+                            alert("This browser does not support FileReader.");
+                        }
+                    }
+                } else {
+                    alert("Please upload a valid image file.");
+                }
+            });
+        });
+
+        $(function () {
+            $("#fileupload3").change(function () {
+                $("#dvPreview3").html("");
+                var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                if (regex.test($(this).val().toLowerCase())) {
+                    if ($.browser.msie && parseFloat(jQuery.browser.version) <= 9.0) {
+                        $("#dvPreview3").show();
+                        $("#dvPreview3")[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(this).val();
+                    }
+                    else {
+                        if (typeof (FileReader) != "undefined") {
+                            $("#dvPreview3").show();
+                            $("#dvPreview3").append("<img style='width:100px;height:100px;'/>");
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                $("#dvPreview3 img").attr("src", e.target.result);
+                            }
+                            reader.readAsDataURL($(this)[0].files[0]);
+                        } else {
+                            alert("This browser does not support FileReader.");
+                        }
+                    }
+                } else {
+                    alert("Please upload a valid image file.");
+                }
+            });
+        });
+    </script>
+
+
+
+</head>
+
+<body onload="Refresh_AD();Update_Filters()">
+
+    <header id="Header-container" style="margin:15px 0 40px 0;">
+
+        <div id="AD_Widget" style="margin: auto; width: 600px; height: 120px">
+        </div>
+
+    </header>
+
+
+<div id="dialogoverlay"></div>
+<div id="dialogbox">
+  <div>
+    <div id="dialogboxhead"></div>
+    <div id="dialogboxbody"></div>
+    <div id="dialogboxfoot"></div>
+  </div>
+</div>
+
+
+<a href='@Url.Action("Home", "myOLX")'>
+<input type="button" id="ADS_Button" value="Home" style="background-color:#2965be;color:white; margin:0 0 10px 926px; font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+
+<a href='@Url.Action("Search_AD", "myOLX")'>
+<input type="button" id="ADS_Button" value="Search AD" style="background-color:#2965be;color:white; margin-left:5px; font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+
+@using (Html.BeginForm("Submit_Ad_Post","myOLX", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div>
+
+
+        <div class="box">
+            <h1 style="color: black; font-size: 20px; font-weight: 200; margin: 9px 0 10px 9px">Submit an Ad</h1>
+        </div>
+
+        <div class="box">
+
+            <div style="background: url(../Images/Submit_2.png) no-repeat 0 0; width: 800px; height: 138px; margin: 12px 0 8px 131px;">
+                <div id="AdTitle">
+                    <input id="Title" type="text" value="" class="input-box" data-val-required="Email is required (we promise not to spam you!)." style="margin: -2px 0 0 85px; width: 466px" name="Title" />
+                                    
+</div>
+               
+                <div>
+                    <select name="Category" id="Categories" onchange='Update_Filters()' style="width: 200px; height: 30px; margin: 55px 0 0 85px">
+                        <option value="1">Cars</option>
+                        <option value="2">Fashion & Beauty</option>
+                        <option value="3">Furniture</option>
+                        <option value="4">Houses</option>
+                        <option value="5">Mobiles & Tablets</option>
+                        
+                   </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="Filters_Box" class="box">
+
+        </div>
+
+        <div class="box">
+
+            <div>
+                <img src="../Images/Submit_3.png" style="width: 109px; height: 20px; margin: 14px 0 0 94px" />
+            </div>
+
+            <span>
+                <textarea id="Description" name="Description" value="" style="height: 173px; width: 416px; margin: -24px 0 0 216px; resize: none; overflow-y: hidden;" cols="80" rows="1" placeholder="Include the brand, model, age and any included accessories."></textarea>
+            </span>
+
+
+
+
+        </div>
+
+<div class="box">
+
+      
+
+@*<span><input type="file" name="photo1" id="fileupload" value="" style="width: 110px; height: 93px; margin: 10px 0 0 217px;" /></span>
+<label for="fileupload"><img src="../Images/Upload_Image.jpg" style="width: 110px; height: 93px; margin: -118px 0 0 217px;" /></label>  
+<span id="dvPreview" style="margin:0 0 0 50px">    </span> *@
+
+<input type="file" name="photo1" id="fileupload1" value="" style="margin: 10px 0 0 217px;" />
+<span id="dvPreview1" style="margin:0 0 0 380px;">    </span> 
+
+<input type="file" name="photo2" id="fileupload2" value="" style="margin: 10px 0 0 217px;" />
+<span id="dvPreview2" style="margin:0 0 0 380px;">    </span> 
+
+<input type="file" name="photo3" id="fileupload3" value="" style="margin: 10px 0 0 217px;" />
+<span id="dvPreview3" style="margin:0 0 0 380px;">    </span> 
+
+
+        </div>
+
+
+
+        <div class="box">
+
+            <div style="background: url(../Images/Submit_4.png) no-repeat 0 0; width: 392px; height: 134px; margin: 10px 0 8px 125px;">
+
+                <div id="Name">
+                    <input id="Namei" type="text" value="" class="input-box" style="margin: 1px 0 0 91px; width: 224px" name="Name" />
+                </div>
+
+                <div id="Email">
+                    <input id="Emaili" type="email" value="" class="input-box" style="margin: 23px 0 0 91px; width: 295px" name="Email" />
+                </div>
+
+                <div id="Phone">
+                    <input id="Phonei" type="number" value="" class="input-box" style="margin: 23px 0 0 91px; width: 224px" name="Phone" />
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="box">
+
+            <div style="background: url(../Images/Submit_5.png) no-repeat 0 0; width: 876px; height: 179px; margin: 0 0 30px -1px;">
+
+                <div>
+                    <select name="Location" style="width:200px; height:30px; margin:14px 0 0 216px">
+                        <option value="Lahore">Lahore</option>
+                        <option value="Islamabad">Islamabad</option>
+                        <option value="Karachi">Karachi</option>
+                        <option value="Multan">Multan</option>
+                        <option value="Faisalabad">Faisalabad</option>
+                        <option value="Peshawar">Peshawar</option>
+                    </select>
+                </div>
+
+                <div>
+                    
+                                       
+                    <input value="" type="submit" onclick="return Check_Validation()" style="background: url(../Images/Submit_6.png); width: 174px; height: 43px; margin: 100px 0 0 657px;"/>
+
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+}
+
+    <footer>
+
+        <img src="/Images/Footer.png" style="width: 1349px; height: 442px; margin: 0 0 0 0; vertical-align: text-top;" />
+
+
+    </footer>
+
+</body>
+</html>

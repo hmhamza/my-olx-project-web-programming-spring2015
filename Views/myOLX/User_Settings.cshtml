@@ -1,0 +1,158 @@
+﻿@{
+        Layout = "~/Views/AccountLayoutPage.cshtml";
+        string Name=ViewBag.Name;
+}
+
+
+<script>
+
+    $(document).ready(function () {
+
+        document.getElementById("ADS_Button").style.backgroundColor = "#2965be";
+        document.getElementById("Messages_Button").style.backgroundColor = "#2965be";
+        document.getElementById("Settings_Button").style.backgroundColor = "Orange";
+
+        $("#Change_Contact_Details").hide();
+        $("#Change_Password").hide();
+        $("#Change_Email").hide();
+    });
+
+    $(document).ready(function () {
+
+        $("#C1").click(function () {
+            $("#errorBox").html("enter the Last Name");
+
+            if ($("#Change_Contact_Details").is(":visible"))
+                $("#Change_Contact_Details").hide();
+            else
+                $("#Change_Contact_Details").show();
+        });
+
+        $("#C2").click(function () {
+            if ($("#Change_Password").is(":visible"))
+                $("#Change_Password").hide();
+            else
+                $("#Change_Password").show();
+        });
+
+        $("#C3").click(function () {
+            if ($("#Change_Email").is(":visible"))
+                $("#Change_Email").hide();
+            else
+                $("#Change_Email").show();
+        });
+
+       
+    });
+
+    function CheckPassword() {
+
+        if (document.getElementById("Password").value == "") {
+            alert("Enter new Password");
+            return false;
+        }
+        else if (document.getElementById("Re-password").value != document.getElementById("Password").value) {
+            alert("Repeat new Password");
+            return false;
+        }
+        else
+            return true;
+    }
+
+    function CheckEmail() {
+
+        if (document.getElementById("Email").value == "") {
+            alert("Enter new Email");
+            return false;
+        }
+        else
+            return true;
+    }
+</script>
+
+@section Name
+{
+
+   <p style="font-size:35px; font-family:'Forte'; margin:20px 0 15px 20px;">@Name 's Profile</p>
+     
+}
+
+@section Content
+{
+
+<div style="width: 855px; height: 30px; margin: 20px 0 0 10px; background-color: #F3F3F3;">
+    <a style="cursor: pointer;">
+        <h3 id="C1" style="color: #2965be; margin: 0 0 0 10px;">Change contact details</h3>
+    </a>
+</div>
+
+
+<div id="Change_Contact_Details" style="margin: 10px 0 0 20px;">
+@using (Html.BeginForm("Change_Contact_Details","myOLX"))
+{
+    <h4>Location</h4>
+    <select name="Location" style="width: 275px; height: 30px; margin: 0 0 0 0">
+        <option value="Lahore">Lahore</option>
+        <option value="Islamabad">Islamabad</option>
+        <option value="Karachi">Karachi</option>
+        <option value="Multan">Multan</option>
+        <option value="Faisalabad">Faisalabad</option>
+        <option value="Peshawar">Peshawar</option>
+    </select>
+    <h4 style="margin: 25px 0 0 0;">Name</h4>
+    <input type="text" class="input-box" style="width: 275px; height: 30px; margin: 8px 0 0 0" name="Name" />
+
+    <h4 style="margin: 25px 0 0 0;">Phone</h4>
+    <input type="number" class="input-box" style="width: 275px; height: 30px; margin: 8px 0 0 0" name="Phone" />
+
+<br />
+    
+        <input value="" type="submit" style="background: url(/Images/Contact_Save.jpg); width: 77px; height: 34px; margin: 20px 0 0 0;" />
+
+}
+</div>
+
+
+
+<div style="width: 855px; height: 30px; margin: 20px 0 0 10px; background-color: #F3F3F3;">
+    <a style="cursor: pointer;">
+        <h3 id="C2" style="color: #2965be; margin: 0 0 0 10px;">Change password</h3>
+    </a>
+</div>
+
+<div id="Change_Password" style="margin: 10px 0 0 20px;">
+@using (Html.BeginForm("Change_Password","myOLX"))
+{
+        <h4 style="margin: 25px 0 0 0;">New Password</h4>
+    <input id="Password" type="password" class="input-box" style="width: 275px; height: 30px; margin: 8px 0 0 0" name="Password" />
+
+    <h4 style="margin: 25px 0 0 0;">Repeat New Password</h4>
+    <input id="Re-password"type="password" class="input-box" style="width: 275px; height: 30px; margin: 8px 0 0 0" name="Re-password" />
+
+    <br/>
+        <input value="" type="submit" onclick="return CheckPassword()" style="background: url(/Images/ChangePassword.jpg); width: 191px; height: 34px; margin: 20px 0 0 0;" />
+}
+</div>
+
+
+
+@*<div style="width: 855px; height: 30px; margin: 20px 0 20px 10px; background-color: #F3F3F3;">
+    <a style="cursor: pointer;">
+        <h3 id="C3" style="color: #2965be; margin: 0 0 0 10px;">Change email</h3>
+    </a>
+</div>
+
+
+<div id="Change_Email" style="margin: 10px 0 25px 20px;">
+
+@using (Html.BeginForm("Change_Email","myOLX"))
+{
+        <h4 style="margin: 25px 0 0 0;"> New Email</h4>
+    <input id="Email" type="email" class="input-box" style="width: 275px; height: 30px; margin: 8px 0 0 0" name="Email" />
+
+  
+    <br/>
+        <input value="" type="submit" style="background: url(/Images/Contact_Save.jpg); width: 77px; height: 34px; margin: 20px 0 0 0;" />
+}*@
+</div>
+}

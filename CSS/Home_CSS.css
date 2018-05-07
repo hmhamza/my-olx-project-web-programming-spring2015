@@ -1,0 +1,32 @@
+﻿body {
+    background:url(../Images/BG.jpg) no-repeat  0 0;
+   
+
+}
+
+.slider {
+    margin:20px 0 0 150px;
+   
+}
+
+slider_img{
+    width:1000px;
+    height:300px;
+}
+
+.button {
+    padding: 5px;
+    
+    border: 1px solid #ffa853;
+    box-shadow: 0 0 5px 3px #FFF;
+    border-radius: 5px;
+    border: 1px solid #666;
+    color: #FFF;
+    width: 200px;
+    height:45px;
+    text-decoration: none;
+    font-family:'MV Boli';
+    font-size:18px;
+}
+
+

@@ -1,0 +1,441 @@
+﻿
+@model PagedList.IPagedList<Web_Finale3.Models.AD>
+@using PagedList.Mvc;
+
+@{
+    Layout = null;
+}
+@{
+    @*List<AD> ADS = ViewBag.ADS;*@
+    int Count=1;
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/Images/asd.ico" />
+
+    <title>Free classifieds in Pakistan, classified ads in Pakistan (For Sale in Pakistan, Vehicles in Pakistan, Real Estate in Pakistan, Community in Pakistan,...)</title>
+
+    <link rel="stylesheet" type="text/css" href="/CSS/Search_CSS.css" />
+
+    <link href="/CSS/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="/JS/bootstrap.min.js"></script>
+
+    <script src="/JS/jquery-1.11.2.min.js"></script>
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <!-- AD Widget -->
+    <script src="/JS/AD_Widget.js"></script>
+
+<!-- Pagination -->
+<script src="/JS/Pagination.js"></script>
+
+   
+
+
+    <style>
+        #page_navigation a {
+            padding: 3px;
+            border: 1px solid gray;
+            margin: 2px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .active_page {
+            background: darkblue;
+            color: white !important;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+
+
+        function removeElement(elemID) {
+
+            var node = document.getElementById(elemID);
+
+            if (node != null) {
+                node.parentNode.removeChild(node);
+            }
+        }
+
+        function get_CarsFilters() {
+
+            var html = "<div id='Cars_Brand' style='margin: 15px 0 0 15px; font-size:15px;'>";
+            html += "Brand: ";
+            html += "<span>";
+            html += "<input id='Car_Brand' name='Param1' style='margin: 0 0 0 0;' />";
+            html += "</span>";
+            html += "</div>";
+
+
+            html += "<div id='Cars_Mileage' style='margin: 15px 0 25px 15px; font-size:15px;'>";
+            html += "Mileage: ";
+
+            html += "<span>";
+            html += "<select name='Mileage_From'>";
+            html += "<option value=0>KM\'s Driver</option>";
+            html += "<option value=1000>1,000 km</option>";
+            html += "<option value=5000>5,000 km</option>";
+            html += "<option value=10000>10,000 km</option>";
+            html += "<option value=25000>25,000 km</option>";
+            html += "</select>";
+            html += "</span>";
+
+            html += "<span>";
+            html += "&nbsp&nbsp-&nbsp&nbsp";
+            html += "</span>";
+
+            html += "<span>";
+            html += "<select name='Mileage_To'>";
+            html += "<option value=0>KM\'s Driver</option>";
+            html += "<option value=1000>1,000 km</option>";
+            html += "<option value=5000>5,000 km</option>";
+            html += "<option value=10000>10,000 km</option>";
+            html += "<option value=25000>25,000 km</option>";
+            html += "</select>";
+            html += "</span>";
+            html += "</div>";
+
+            return html;
+        }
+
+        function get_FashionFilters() {
+
+            var html = "<div id='FashionFilters' style='margin: 25px 0 25px  15px; font-size:15px;'>";
+            html += "Category: ";
+            html += "<span>";
+            html += "<select name='Param1'>";
+            html += "    <option value='All'>All in Fashion & Beauty</option>";
+            html += "    <option value='Clothes'>Clothes</option>";
+            html += "    <option value='Footwear'>Footwear</option>";
+            html += "    <option value='Jewellery'>Jewellery</option>";
+            html += "    <option value='Accessories'>Accessories</option>";
+            html += "    <option value='Watches'>Watches</option>";
+            html += "    <option value='Health & Beauty'>Health & Beauty</option>";
+            html += "</select>";
+            html += "</span>";
+            html += "</div>"
+
+            html += "<div style='margin: 15px 0 25px 15px; font-size:15px;'>";
+            html += "&nbsp&nbspFor: ";
+
+            html += "<span>";
+            html += "<select name='Param2' id='Gender_Categories' style='margin: 0px 0 0 39px;'>";
+            html += "    <option value='All'>All</option>";
+            html += "    <option value='Men'>Men</option>";
+            html += "    <option value='Women'>Women</option>";
+            html += "</select>";
+            html += "</span>";
+
+            return html;
+        }
+
+        function get_FurnitureFilters() {
+
+            var html = "<div id='FurnitureFilters' style='margin: 25px 0 25px  15px; font-size:15px;'>";
+            html += "Category: ";
+            html += "<span>";
+            html += "<select name='Param1' id='Furniture_Categories' style='margin: 0px 0 0 0;'>";
+            html += "    <option value='All'>All types</option>";
+            html += "    <option value='Beds'>Beds & Mattresses</option>";
+            html += "    <option value='Cabinets'>Cabinets</option>";
+            html += "    <option value='Chairs'>Chairs</option>";
+            html += "    <option value='Cupboards'>Cupboards</option>";
+            html += "    <option value='Tables'>Tables</option>";
+            html += "    <option value='Other'>Other Furniture</option>";
+            html += "</select>";
+            html += "</span>";
+            html += "</div>"
+
+            return html;
+        }
+
+        function get_HousesFilters() {
+
+            var html = "<div id='Rooms' style='margin: 15px 0 0 15px; font-size:15px;'>";
+            html += "Rooms: ";
+            html += "<span >";
+            html += "<select name='Param1'>";
+            html += "<option value=0>Rooms</option>";
+            html += "<option value=1>1</option>";
+            html += "<option value=2>2</option>";
+            html += "<option value=3>3 and more</option>";
+            html += "</select>";
+            html += "</span>";
+
+            html += "</div>"
+
+            html += "<div id='Area' style='margin: 15px 0 25px 15px; font-size:15px;'>";
+            html += "&nbsp&nbspArea: ";
+
+            html += "<span>";
+            html += "<select  name='Area_From' style='margin: 0 0 0 9px;'>";
+            html += "<option  value=0>Sqmt from</option>";
+            html += "<option  value=25>25 sqmt</option>";
+            html += "<option  value=50>50 sqmt</option>";
+            html += "<option  value=100>100 sqmt</option>";
+            html += "<option  value=200>200 sqmt</option>";
+            html += "<option  value=500>500 sqmt</option>";
+            html += "</select>";
+            html += "</span>";
+
+            html += "<span>";
+            html += "&nbsp&nbsp-&nbsp&nbsp";
+            html += "</span>";
+
+            html += "<span>";
+            html += "<select  name='Area_To'>";
+            html += "<option  value=0>Sqmt to</option>";
+            html += "<option  value=25>25 sqmt</option>";
+            html += "<option  value=50>50 sqmt</option>";
+            html += "<option  value=100>100 sqmt</option>";
+            html += "<option  value=200>200 sqmt</option>";
+            html += "<option  value=500>500 sqmt</option>";
+            html += "</select>";
+            html += "</span>";
+            html += "</div>";
+
+            return html;
+        }
+
+        function get_MobileFilters() {
+
+            var html = "<div id='MobileFilters' style='margin: 25px 0 25px  15px; font-size:15px;'>";
+            html += "Brand: ";
+            html += "<span>";
+            html += "<input id='Mobile_Brand' name='Param1' name='Param1' style='margin: 0 0 0 0;' />";
+            html += "</span>";
+            html += "</div>"
+
+            return html;
+        }
+
+        function get_Header_HTML() {
+
+            var html = "";
+
+            html += "<div id='Search_Header'>";
+            html += "<span>";
+            html += "<select id='Location' name='Location' style='width:250px; height:30px; margin:40px 0 0 18px'>";
+            html += "<option value='All'>All Pakistan</option>";
+            html += "<option value='Lahore'>Lahore</option>";
+            html += "<option value='Islamabad'>Islamabad</option>";
+            html += "<option value='Karachi'>Karachi</option>";
+            html += "<option value='Multan'>Multan</option>";
+            html += "<option value='Faisalabad'>Faisalabad</option>";
+            html += "<option value='Peshawar'>Peshawar</option>";
+
+            html += "</select>";
+            html += " </span>";
+
+            html += "<span>";
+            html += "<select id='Categories' name='Categories' onchange='Update_Filters();' style='width:250px; height:30px; margin:40px 0 0 24px'>";
+            html += "<option value='All'>All Categories</option>";
+            html += "<option value='Car'>Cars</option>";
+            html += "<option value='Fashion'>Fashion & Beauty</option>";
+            html += "<option value='Furniture'>Furniture</option>";
+            html += "<option value='House'>Houses</option>";
+            html += "<option value='Mobile'>Mobiles & Tablets</option>";
+            html += "</select>";
+            html += " </span>";
+
+            html += "<span>";
+            html += "<input id='Input_Title' name='Input_Title' placeholder='e.g. swift, samsung galaxy, tv...' style='width: 250px; height: 30px; margin: 40px 0 0 24px' />";
+            html += " </span>";
+
+            //html += "<span>";
+            //html += "<img class='img-style' src='../Images/Search_2.png' onclick='Update_Results()' style='width: 39px; height: 31px; margin:-1px 0 0 -4px' />";
+            //html += " </span>";
+
+            html += "<input id='Search' type='Submit' value='' style='background: url(/Images/Search_2.png); width: 39px; height: 31px; margin-top:18px;' />";
+
+            html += "</div>";
+            return html;
+        }
+
+        function get_PriceFrom_HTML() {
+
+            var html = "<select id='Price_From' name='Price_From' onchange='Update_Results()'>";
+            html += "<option value=0>Price from</option>";
+            html += " <option id='Price_From_500' value=500>Rs. 500</option>";
+            html += "<option id='Price_From_1000' value=1000>Rs. 1,000</option>";
+            html += "<option id='Price_From_2000' value=2000>Rs. 2,000</option>";
+            html += " <option id='Price_From_5000' value=5000>Rs. 5,000</option>";
+            html += "<option id='Price_From_10000' value=10000>Rs. 10,000</option>";
+            html += "<option id='Price_From_25000' value=25000>Rs. 25,000</option>";
+            html += "<option id='Price_From_50000' value=50000>Rs. 50,000</option>";
+            html += "<option id='Price_From_100000' value=100000>Rs. 100,000</option>";
+            html += "<option id='Price_From_1000000' value=1000000>Rs. 10,00,000</option>";
+            html += "</select>";
+
+            return html;
+        }
+
+        function get_PriceTo_HTML() {
+
+            var html = "<select id='Price_To'  name='Price_To' onchange='Update_Results()'>";
+            html += "<option value=0>Price to</option>";
+            html += " <option id='Price_To_500'  value=500>Rs. 500</option>";
+            html += "<option id='Price_To_1000'  value=1000>Rs. 1,000</option>";
+            html += "<option id='Price_To_2000'  value=2000>Rs. 2,000</option>";
+            html += "<option id='Price_To_5000'  value=5000>Rs. 5,000</option>";
+            html += "<option id='Price_To_10000'  value=10000>Rs. 10,000</option>";
+            html += "<option id='Price_To_25000'  value=25000>Rs. 25,000</option>";
+            html += "<option id='Price_To_50000' value=50000>Rs. 50,000</option>";
+            html += "<option id='Price_To_100000'  value=100000>Rs. 100,000</option>";
+            html += "<option id='Price_To_1000000'  value=1000000>Rs. 10,00,000</option>";
+            html += "</select>";
+
+            return html;
+        }
+
+        function get_PriceRange_HTML() {
+
+            var html = "<div id='Price_Filter' style='margin: 25px 0 25px 15px; font-size:15px;'>";
+            html += "Price: ";
+            html += "<span id='P1'>";
+            html += get_PriceFrom_HTML();
+            html += "</span>";
+
+            html += "<span>";
+            html += "&nbsp&nbsp-&nbsp&nbsp";
+            html += "</span>";
+
+            html += "<span id='P2'>";
+            html += get_PriceTo_HTML();
+            html += "</span>";
+            html += "</div>";
+
+            return html;
+
+        }
+
+        function LoadSearchWidget() {
+
+            var html = get_Header_HTML();
+
+            html += "<div id='Filters_Box' class='box' style='margin-bottom:50px'>";
+            html += get_PriceRange_HTML();
+            html += "</div>";
+
+            document.getElementById("Search_Widget").innerHTML += html;
+        }
+
+        function Update_Filters() {
+
+            var html = get_PriceRange_HTML();
+            document.getElementById("Filters_Box").innerHTML = html;
+
+            var category = document.getElementById("Categories").value;
+
+            if (category == "Mobile") {
+
+                //removeElement("Price_From_50000");
+                //removeElement("Price_To_50000");
+
+                //removeElement("Price_From_100000");
+                //removeElement("Price_To_100000");
+
+                //removeElement("Price_From_1000000");
+                //removeElement("Price_To_1000000");
+
+                html = get_MobileFilters();
+                document.getElementById("Filters_Box").innerHTML += html;
+            }
+
+            else if (category == "Car") {
+
+                //removeElement("Price_From_500");
+                //removeElement("Price_To_500");
+
+                html = get_CarsFilters();
+                document.getElementById("Filters_Box").innerHTML += html;
+            }
+
+            else if (category == "House") {
+
+                //removeElement("Price_From_500");
+                //removeElement("Price_To_500");
+
+                html = get_HousesFilters();
+                document.getElementById("Filters_Box").innerHTML += html;
+            }
+            else if (category == "Fashion") {
+
+
+                //removeElement("Price_From_1000000");
+                //removeElement("Price_To_1000000");
+
+                html = get_FashionFilters();
+                document.getElementById("Filters_Box").innerHTML += html;
+            }
+            else if (category == "Furniture") {
+
+
+                html = get_FurnitureFilters();
+                document.getElementById("Filters_Box").innerHTML += html;
+            }
+
+        }
+
+    </script>
+
+</head>
+<body onload=" LoadSearchWidget(); Refresh_AD();">
+
+    <header id="Header-container">
+
+        <div id="AD_Widget" style="margin: auto; width: 600px; height: 120px">
+        </div>
+
+    </header>
+
+@*@using (Html.BeginForm("Search_AD","myOLX",FormMethod.Get,null))
+{*@
+
+@using (Ajax.BeginForm("Search_Ad", "myOLX", new AjaxOptions
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "Search_Results",
+    InsertionMode = InsertionMode.Replace
+}))
+{
+    <div id="Search_Widget">
+
+<div style="margin:30px 0 10px 0">
+<span style='color: black; font-size: 20px; font-weight: 200; margin: 40px 0 20px 247px'>Search an Add</span>
+
+<a href='@Url.Action("Home", "myOLX")'>
+<input type="button" id="ADS_Button" value="Home" style="background-color:#2965be;color:white; margin:0 0 10px 525px; font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+
+<a href='@Url.Action("Submit_AD", "myOLX")'>
+<input type="button" id="ADS_Button" value="Submit an AD" style="background-color:#2965be;color:white; margin-left:5px; font-size:18px; font-family:'Arial Rounded MT'" />
+</a>
+</div>
+    </div>
+
+ <div id="Search_Results">
+
+           
+        </div>
+                
+}
+       
+<br />
+
+
+    </div>
+
+</body>
+</html>

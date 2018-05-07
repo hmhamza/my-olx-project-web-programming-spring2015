@@ -1,0 +1,74 @@
+/*!
+* Validation-with-lightbox v1.1
+* https://github.com/soyosolution/validation-with-lightbox
+* http://tool.soyosolution.com/validation-with-lightbox/
+*
+* Includes jQuery Library
+* http://www.jquery.com/
+*
+* Copyright 2014 Soyo Solution Company. and other contributors
+* Released under the MIT license
+* http://jquery.org/license
+*
+* Last update date: 2014-04-13
+* =============================================
+* Current file name : demo.css
+*/
+
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
+body	{width:100%; min-height:100%; text-align:center;background-color:#fff; margin: 0px;}
+a {text-decoration: underline; color:rgba(11,72,107,1); font-family:Arial;}
+img {border:0;padding:0; margin:0;}
+div {display:inline-block; border:0px solid yellow; overflow:hidden; text-align:left; font-size:12px;}
+td {vertical-align:top; border:0px;}
+ol li {line-height:25px; font-size:16px;}
+
+body {font-family:Arial;}
+#form {width:600px;}
+.item {float:left; display:block;}
+h6 {float:left; width:150px; margin:0; display:block; }
+.input_panel {float:left; display:block; width:450px;}
+h1,h3 {box-sizing: border-box;}
+div {display:block;}
+p {font-size:16px; line-height: 25px;}
+label {font-size:12px; font-weight:normal}
+blockquote {width:650px; border:1px dotted #555; padding:20px; overflow:auto;}
+table {}
+table thead td {border:1px dotted #555; background:#ccc;}
+table td {border:1px dotted #ccc;}
+
+.yellow_bg {background:yellow}
+.blue_text   {color:blue}
+.green_text  {color:green}
+.red_text  {color:red}
+
+#main_wrapper {float:left; width:100%; box-sizing: border-box; height:auto; background:#c21b09; }
+#header {float:left; width:100%; box-sizing: border-box; height:100px; background:#222; background-position:center center; background-size: auto 100%; padding: 20px 0;}
+#header h1{color:#fff;}
+#nav {float:left; width:100%; box-sizing: border-box; height:43px; background:url('images/bg/bg_nav.png'); text-align:center;}
+#nav .inner {margin:auto; width:960px; padding:0 20px;}
+#nav a {float:left; float:left;}
+#nav a img {margin:3px 3px;}
+
+#section {float:left; width:100%; box-sizing: border-box; min-height:700px; background:#f1f1f1; text-align:center;}
+#section .inner { margin:auto; width:980px;}
+#section #left_panel {float:left; width:80%;}
+#section #demo_form, #section #message_box { width:85%; background:#fff; padding:20px; border:2px solid #555; border-radius:25px;}
+
+#section #right_panel {float:left; width:20%;}
+#article { padding:20px 20px 50px 20px; text-align:left;}
+#footer {float:left; width:100%; box-sizing: border-box; height:auto; background:#0b486b; background-position:center; text-align:center;}
+#footer .inner {margin:auto; width:960px; margin:20px 20px; color:#fff; text-align:left; font-size:12px; line-height:16px; font-family:Arial;}
+#footer .inner .left {float:left; width:800px;}
+#footer .inner .right {float:left; }
+
+body {font-family:Arial;}
+#header h1 {margin:10px 0 0 30px;}
+#form {width:600px;}
+.item {float:left; display:block;}
+h6 {float:left; width:150px; margin:0; display:block; }
+.input_panel {float:left; display:block; width:450px; margin:5px 0;}
+#message_box {margin:20px 0 0 0;}
+code {font-size:small; background:white; }
+pre  {background:fff; border:1px dotted #aaa; overflow:auto; padding:5px;}
+pre code {background:none;}

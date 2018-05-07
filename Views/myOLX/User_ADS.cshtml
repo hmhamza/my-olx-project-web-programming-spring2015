@@ -1,0 +1,69 @@
+﻿@using Web_Finale3.Models
+@{
+        Layout = "~/Views/AccountLayoutPage.cshtml";
+}
+@{
+        string Name=ViewBag.Name;
+        List<AD> ADS = ViewBag.ADS;
+        int Count=0;
+}
+
+<script>
+
+    $(document).ready(function () {
+
+        document.getElementById("ADS_Button").style.backgroundColor = "Orange";
+        document.getElementById("Messages_Button").style.backgroundColor = "#2965be";
+        document.getElementById("Settings_Button").style.backgroundColor = "#2965be";
+
+    });
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="../CSS/User_CSS.css" />
+
+@section Name
+{
+        <p style="font-size:35px; font-family:'Forte'; margin:20px 0 15px 20px;">@Name 's Profile</p>
+}
+
+@section Content
+{
+
+
+<div style="width:875px; background-color:black;">
+<h2 style="font-family:'Arial Rounded MT'; color:white; text-align:center;">@Name 's ADS</h2>
+
+</div>
+
+<div id="Search_Results">
+
+ @foreach (AD a in ADS)
+                {
+
+                  <div class='resultBox' >
+            <div class='Count_Div'>
+                @Count
+                @{Count++;}
+
+            </div>
+
+            <div class='Text_Div'>
+                <p class='Result_Text'>Title: &nbsp&nbsp @a.Title </p>
+                <p class='Result_Text'>Location:&nbsp&nbsp @a.Location</p>
+                <p class='Result_Text'>Price:&nbsp&nbsp @a.Price </p>
+
+            </div>
+
+@using (Html.BeginForm("AD_Details","myOLX",new{id=@a.ID},FormMethod.Post,null))
+{
+        <input value="View Full AD" type="submit" class="button" style="background-color: #2965BE; margin: 10px 0 0 290px"/>
+}
+
+        </div>
+                }
+
+          
+
+    </div>
+}

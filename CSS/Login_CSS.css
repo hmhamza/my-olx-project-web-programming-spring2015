@@ -1,0 +1,55 @@
+﻿body {
+}
+
+.Login-text {
+    font-size: 15px;
+    font-weight: 200;
+    color: #626262;
+    
+    margin:41px 0 0 408px;
+
+}
+
+.box {
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    background: #fff;
+    
+    width: 533px;
+    height: auto;
+    margin:11px 0 0 408px;
+}
+
+.box-image{
+     background: url(../Images/Login_2.jpg) no-repeat 0 0;
+
+      width: 374px;
+    height: 233px;
+
+    margin:29px 0 0 53px;
+
+}
+
+.input-box {
+    background: #fff;
+    border: 1px solid #818080;
+    border-right-color: #efede8;
+    border-bottom-color: #efede8;
+    
+    border-radius: 0;
+    
+    height:30px;
+    width:280px;
+}
+
+#check-box{
+    margin: 24px 0 0 79px;
+    background-color:white; 
+    
+}
+
+
+.img-style:hover {
+    
+    box-shadow: 0 0 10px #0300ff;
+}
