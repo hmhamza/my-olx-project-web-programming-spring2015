@@ -1,2 +1,26 @@
-# my-olx-project-web-programming-spring2015
-Web project done in ASP.NET using MVC architecture for the Bachelors course CS406 Web Programming in Spring2015
+# My OLX
+
+### Introduction:
+The project is to create an online classifieds application for used goods (similar to OLX). Users can search and post ads as a basic feature of the application. System shall also support social networking analysis, where users shall be able to find advertisements of interest posted by their friends through Facebook integration.
+
+### Features:
+1. User profile and registration
+2. User can post an advertisement comprising of following fields
+   - Title
+   - Category
+   - Image
+   - Price
+   - Location
+3. User can search and filter advertisements using a search widget based upon following criteria:
+   - Title
+   - Category
+   - Price range
+   - Location
+4. User can contact other users who posted the ad through email
+5. User can rate other users who posted the ad
+6. User can search for ads posted by friends through Facebook integration
+
+### Instructions:
+1. System shall be based on MVC architecture
+2. System shall be secure from hack-attacks
+3. Any server-side technology and framework may be used
