@@ -24,3 +24,11 @@ The project is to create an online classifieds application for used goods (simil
 ### Instructions:
 1. System shall be based on MVC architecture
 2. System shall be secure from hack-attacks
+
+## Screen Shots:
+
+![](https://github.com/hmhamza/my-olx-project-web-programming-spring2015/blob/master/Screenshots/1.%20Search%20Ad.jpg)
+![](https://github.com/hmhamza/my-olx-project-web-programming-spring2015/blob/master/Screenshots/2.%20Sign%20Up.jpg)
+![](https://github.com/hmhamza/my-olx-project-web-programming-spring2015/blob/master/Screenshots/3.%20Log%20in.jpg)
+![](https://github.com/hmhamza/my-olx-project-web-programming-spring2015/blob/master/Screenshots/4.%20Account%20Settings.jpg)
+![](https://github.com/hmhamza/my-olx-project-web-programming-spring2015/blob/master/Screenshots/5.%20Facebook%20Friends.jpg)
