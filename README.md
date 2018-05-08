@@ -19,8 +19,8 @@ The project is to create an online classifieds application for used goods (simil
 4. User can contact other users who posted the ad through email
 5. User can rate other users who posted the ad
 6. User can search for ads posted by friends through Facebook integration
+7. JavaScript based Ad Widget used to display banner ads that may be advertised by other parties. Multiple ads may be rotated over time on a single page. Ads may also be closed by the user
 
 ### Instructions:
 1. System shall be based on MVC architecture
 2. System shall be secure from hack-attacks
-3. Any server-side technology and framework may be used
